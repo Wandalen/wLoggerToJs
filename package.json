@@ -26,10 +26,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Wandalen/wLoggerToJstructure.git"
+    "url": "https://github.com/Wandalen/wLoggerToJs.git"
   },
   "bugs": {
-    "url": "https://github.com/Wandalen/wLoggerToJstructure/issues"
+    "url": "https://github.com/Wandalen/wLoggerToJs/issues"
   },
   "dependencies": {
     "wLogger": ""

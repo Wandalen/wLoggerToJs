@@ -3,7 +3,7 @@ if( typeof module !== 'undefined' )
 require( 'wloggertojstructure' );
 
 var _ = wTools;
-var logger = new wLoggerToJstructure();
+var logger = new wLoggerToJs();
 
 console.log( 'outputData',logger.outputData );
 
