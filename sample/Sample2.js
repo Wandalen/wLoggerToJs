@@ -1,6 +1,6 @@
 
 if( typeof module !== 'undefined' )
-require( 'wloggertojstructure' );
+require( 'wloggertojs' );
 
 var _ = wTools;
 

@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "wTesting": "",
-    "wloggertojstructure": "."
+    "wloggertojs": "."
   },
   "keywords": [
     "record console output",
