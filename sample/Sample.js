@@ -3,7 +3,7 @@ if( typeof module !== 'undefined' )
 require( 'wloggertojs' );
 
 var _ = wTools;
-var logger = new wLoggerToJs();
+var logger = new wPrinterToJs();
 
 console.log( 'outputData',logger.outputData );
 
