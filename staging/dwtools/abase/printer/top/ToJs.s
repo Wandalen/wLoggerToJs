@@ -332,7 +332,7 @@ _.classDeclare
 
 //
 
-_.accessor
+_.accessor.declare
 ({
   object : Self.prototype,
   names :
