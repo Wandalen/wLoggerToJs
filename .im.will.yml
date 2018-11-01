@@ -63,7 +63,7 @@ reflector :
 
   grab.dependencies.debug :
     reflectMap :
-      reflector::.debug : path::out.debug
+      reflector::.dependencies.debug : path::out.debug
 
   out.debug :
     srcFilter :
