@@ -5,7 +5,7 @@
 if( typeof module !== 'undefined' )
 {
 
-  require( '../printer/top/ToJs.s' );
+  require( '../../l9/printer/top/ToJs.s' );
 
   var _ = wTools;
 
