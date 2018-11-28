@@ -173,8 +173,8 @@ reflector:
       ./dwtools/abase/printer.test/.DS_Store: true
       ./dwtools/abase/printer.test/ToJs.test.s: true
     srcFilter:
-      basePath: ./proto
-      prefixPath: .
+      basePath: .
+      prefixPath: proto
     dstFilter:
       basePath: .
       prefixPath: .
