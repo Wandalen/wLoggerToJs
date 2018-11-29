@@ -60,12 +60,13 @@ path:
       - ./dwtools
       - ./dwtools/Tools.s
       - ./dwtools/abase
-      - ./dwtools/abase/printer
-      - ./dwtools/abase/printer/top
-      - ./dwtools/abase/printer/top/ToJs.s
-      - ./dwtools/abase/printer.test
-      - ./dwtools/abase/printer.test/.DS_Store
-      - ./dwtools/abase/printer.test/ToJs.test.s
+      - ./dwtools/abase/l9
+      - ./dwtools/abase/l9/printer
+      - ./dwtools/abase/l9/printer/top
+      - ./dwtools/abase/l9/printer/top/ToJs.s
+      - ./dwtools/abase/l9.test
+      - ./dwtools/abase/l9.test/printer
+      - ./dwtools/abase/l9.test/printer/ToJs.test.s
       - ./dwtools/amid
       - ./dwtools/atop
     criterion:
@@ -79,9 +80,8 @@ path:
   exportedTerminals.0:
     path:
       - ./dwtools/Tools.s
-      - ./dwtools/abase/printer/top/ToJs.s
-      - ./dwtools/abase/printer.test/.DS_Store
-      - ./dwtools/abase/printer.test/ToJs.test.s
+      - ./dwtools/abase/l9/printer/top/ToJs.s
+      - ./dwtools/abase/l9.test/printer/ToJs.test.s
     criterion:
       default: 1
       debug: 1
@@ -165,9 +165,8 @@ reflector:
     recursive: 0
     filePath:
       ./dwtools/Tools.s: true
-      ./dwtools/abase/printer/top/ToJs.s: true
-      ./dwtools/abase/printer.test/.DS_Store: true
-      ./dwtools/abase/printer.test/ToJs.test.s: true
+      ./dwtools/abase/l9/printer/top/ToJs.s: true
+      ./dwtools/abase/l9.test/printer/ToJs.test.s: true
     srcFilter:
       basePath: .
       prefixPath: proto
@@ -292,9 +291,8 @@ exported:
     exportedTerminalsPath:
       path:
         - ./dwtools/Tools.s
-        - ./dwtools/abase/printer/top/ToJs.s
-        - ./dwtools/abase/printer.test/.DS_Store
-        - ./dwtools/abase/printer.test/ToJs.test.s
+        - ./dwtools/abase/l9/printer/top/ToJs.s
+        - ./dwtools/abase/l9.test/printer/ToJs.test.s
       criterion:
         default: 1
         debug: 1
