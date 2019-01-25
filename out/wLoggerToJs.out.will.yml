@@ -67,6 +67,8 @@ path:
       - ./dwtools/abase/l9.test
       - ./dwtools/abase/l9.test/printer
       - ./dwtools/abase/l9.test/printer/ToJs.test.s
+      - ./dwtools/amid
+      - ./dwtools/atop
     criterion:
       default: 1
       debug: 1
