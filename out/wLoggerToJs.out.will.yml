@@ -11,7 +11,7 @@ about:
     on the server side. Use the module to make your diagnostic code working on
     any platform you work with and to been able to redirect your output to/from
     any destination/source.
-  version: 0.4.68
+  version: 0.4.69
   enabled: 1
   interpreters:
     - nodejs >= 6.0.0
@@ -31,18 +31,18 @@ path:
   out:
     path: out
   out.debug:
-    path: ./out.debug
+    path: ./out/debug
     criterion:
       debug: 1
   out.release:
-    path: ./out.release
+    path: ./out/release
     criterion:
       debug: 0
   repository:
     path: 'git+https://github.com/Wandalen/wLoggerToJs.git'
   bugs:
     path: 'https://github.com/Wandalen/wLoggerToJs/issues'
-  exportedDir.0:
+  exportedDir.proto.export:
     path: ./proto
     criterion:
       default: 1
@@ -52,21 +52,21 @@ path:
       export: 1
       tar: 1
       public: 1
-  exportedFiles.0:
+  exportedFiles.proto.export:
     path:
-      - .
-      - ./dwtools
-      - ./dwtools/Tools.s
-      - ./dwtools/abase
-      - ./dwtools/abase/l9
-      - ./dwtools/abase/l9/printer
-      - ./dwtools/abase/l9/printer/top
-      - ./dwtools/abase/l9/printer/top/ToJs.s
-      - ./dwtools/abase/l9.test
-      - ./dwtools/abase/l9.test/printer
-      - ./dwtools/abase/l9.test/printer/ToJs.test.s
-      - ./dwtools/amid
-      - ./dwtools/atop
+      - proto
+      - proto/dwtools
+      - proto/dwtools/Tools.s
+      - proto/dwtools/abase
+      - proto/dwtools/abase/l9
+      - proto/dwtools/abase/l9/printer
+      - proto/dwtools/abase/l9/printer/top
+      - proto/dwtools/abase/l9/printer/top/ToJs.s
+      - proto/dwtools/abase/l9.test
+      - proto/dwtools/abase/l9.test/printer
+      - proto/dwtools/abase/l9.test/printer/ToJs.test.s
+      - proto/dwtools/amid
+      - proto/dwtools/atop
     criterion:
       default: 1
       debug: 1
@@ -80,7 +80,7 @@ reflector:
   reflect.proto.:
     srcFilter:
       filePath:
-        ./proto: ./out.release
+        ./proto: ./out/release
       maskAll:
         excludeAny:
           - !<tag:yaml.org,2002:js/regexp> /(\W|^)node_modules(\W|$)/
@@ -101,7 +101,7 @@ reflector:
   reflect.proto.debug:
     srcFilter:
       filePath:
-        ./proto: ./out.debug
+        ./proto: ./out/debug
       maskAll:
         excludeAny:
           - !<tag:yaml.org,2002:js/regexp> /(\W|^)node_modules(\W|$)/
@@ -134,29 +134,46 @@ reflector:
       debug: 1
     inherit:
       - predefined.*
-  exported.0:
+  exported.proto.export:
     srcFilter:
-      filePath: ./proto
+      filePath:
+        ./proto: true
       prefixPath: .
-  exportedFiles.0:
+    criterion:
+      default: 1
+      debug: 1
+      raw: 1
+      proto: 1
+      export: 1
+      tar: 1
+      public: 1
+  exportedFiles.proto.export:
     recursive: 0
     srcFilter:
       filePath:
         .: true
-        ./dwtools: true
-        ./dwtools/Tools.s: true
-        ./dwtools/abase: true
-        ./dwtools/abase/l9: true
-        ./dwtools/abase/l9/printer: true
-        ./dwtools/abase/l9/printer/top: true
-        ./dwtools/abase/l9/printer/top/ToJs.s: true
-        ./dwtools/abase/l9.test: true
-        ./dwtools/abase/l9.test/printer: true
-        ./dwtools/abase/l9.test/printer/ToJs.test.s: true
-        ./dwtools/amid: true
-        ./dwtools/atop: true
+        dwtools: true
+        dwtools/Tools.s: true
+        dwtools/abase: true
+        dwtools/abase/l9: true
+        dwtools/abase/l9/printer: true
+        dwtools/abase/l9/printer/top: true
+        dwtools/abase/l9/printer/top/ToJs.s: true
+        dwtools/abase/l9.test: true
+        dwtools/abase/l9.test/printer: true
+        dwtools/abase/l9.test/printer/ToJs.test.s: true
+        dwtools/amid: true
+        dwtools/atop: true
       basePath: .
       prefixPath: proto
+    criterion:
+      default: 1
+      debug: 1
+      raw: 1
+      proto: 1
+      export: 1
+      tar: 1
+      public: 1
 step:
   clean.out.:
     criterion:
@@ -277,7 +294,7 @@ build:
       - 'step::export.proto'
 exported:
   proto.export:
-    version: 0.4.68
+    version: 0.4.69
     criterion:
       default: 1
       debug: 1
@@ -286,7 +303,7 @@ exported:
       export: 1
       tar: 1
       public: 1
-    exportedReflector: 'reflector::exported.0'
-    exportedFilesReflector: 'reflector::exportedFiles.0'
-    exportedDirPath: 'path::exportedDir.0'
-    exportedFilesPath: 'path::exportedFiles.0'
+    exportedReflector: 'reflector::exported.proto.export'
+    exportedFilesReflector: 'reflector::exportedFiles.proto.export'
+    exportedDirPath: 'path::exportedDir.proto.export'
+    exportedFilesPath: 'path::exportedFiles.proto.export'
