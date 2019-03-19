@@ -55,7 +55,7 @@ var symbolForLevel = Symbol.for( 'level' );
  * <ul>
  * <li>Convert data structure to json string [toJson]{@link wPrinterToJs.toJson}
  * </ul>
- * @classdesc Creates a logger that writes messages( incoming & outgoing ) to own data structure( array of arrays ). Based on [wPrinterTop]{@link wPrinterTop}.
+ * @classdesc Subclass of Logger. It writes messages( incoming & outgoing ) to own data structure( array of arrays ). Based on [wPrinterTop]{@link wPrinterTop}.
  * @class wPrinterToJs
  * @param { Object } o - Options.
  * @param { Object } [ o.output=null ] - Specifies single output object for current logger.
