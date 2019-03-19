@@ -29,8 +29,6 @@ var symbolForLevel = Symbol.for( 'level' );
 /**
  *
  *
- * @classdesc Logger based on [wLogger]{@link wLogger} that writes messages( incoming & outgoing ) to own data structure( array of arrays ).
- *
  * Each inner array represent new level of the structure. On write logger puts messages into structure level which is equal to logger level property value.<br>
  * If needed level not exists logger creates it. Next level is always placed at zero index of previous.<br>
  * <br><b>Methods:</b><br><br>
@@ -57,6 +55,7 @@ var symbolForLevel = Symbol.for( 'level' );
  * <ul>
  * <li>Convert data structure to json string [toJson]{@link wPrinterToJs.toJson}
  * </ul>
+ * @classdesc Subclass of Logger. It writes messages( incoming & outgoing ) to own data structure( array of arrays ). Based on [wPrinterTop]{@link wPrinterTop}.
  * @class wPrinterToJs
  * @param { Object } o - Options.
  * @param { Object } [ o.output=null ] - Specifies single output object for current logger.
