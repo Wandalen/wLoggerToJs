@@ -284,23 +284,23 @@ var Restricts =
 var Proto =
 {
 
-  init : init,
+  /*ttt*/init,
 
-  write : write,
+  /*ttt*/write,
 
-  _transformEnd : _transformEnd,
+  /*ttt*/_transformEnd,
 
-  levelSet : levelSet,
+  /*ttt*/levelSet,
 
-  toJson : toJson,
+  /*ttt*/toJson,
 
   // relations
 
   /* constructor * : * Self, */
-  Composes : Composes,
-  Aggregates : Aggregates,
-  Associates : Associates,
-  Restricts : Restricts,
+  /*ttt*/Composes,
+  /*ttt*/Aggregates,
+  /*ttt*/Associates,
+  /*ttt*/Restricts,
 
 }
 

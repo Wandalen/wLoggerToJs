@@ -45,7 +45,8 @@ function writeToJs( test )
   var loggerToJstructure  = new wPrinterToJs();
   loggerToJstructure.log();
   var got = loggerToJstructure.outputData;
-  var expected = [ '' ];
+  // var expected = [ '' ];
+  var expected = [];
   test.identical( got, expected );
 
   test.case = 'case4';
@@ -292,8 +293,8 @@ var Proto =
   tests :
   {
 
-   writeToJs : writeToJs,
-   chaining : chaining,
+   /*ttt*/writeToJs,
+   /*ttt*/chaining,
    leveling  : leveling
 
   },
