@@ -284,23 +284,23 @@ var Restricts =
 var Proto =
 {
 
-  /*ttt*/init,
+  init,
 
-  /*ttt*/write,
+  write,
 
-  /*ttt*/_transformEnd,
+  _transformEnd,
 
-  /*ttt*/levelSet,
+  levelSet,
 
-  /*ttt*/toJson,
+  toJson,
 
   // relations
 
   /* constructor * : * Self, */
-  /*ttt*/Composes,
-  /*ttt*/Aggregates,
-  /*ttt*/Associates,
-  /*ttt*/Restricts,
+  Composes,
+  Aggregates,
+  Associates,
+  Restricts,
 
 }
 
@@ -330,10 +330,6 @@ _global_[ Self.name ] = _[ Self.shortName ] = Self;
 // --
 // export
 // --
-
-if( typeof module !== 'undefined' )
-if( _global_.WTOOLS_PRIVATE )
-{ /* delete require.cache[ module.id ]; */ }
 
 if( typeof module !== 'undefined' && module !== null )
 module[ 'exports' ] = Self;

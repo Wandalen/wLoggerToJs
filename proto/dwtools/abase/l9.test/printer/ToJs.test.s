@@ -293,8 +293,8 @@ var Proto =
   tests :
   {
 
-   /*ttt*/writeToJs,
-   /*ttt*/chaining,
+   writeToJs,
+   chaining,
    leveling  : leveling
 
   },
