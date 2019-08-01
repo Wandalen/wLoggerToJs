@@ -84,7 +84,7 @@ var _ = _global_.wTools;
 var Parent = _.PrinterTop;
 var Self = function wPrinterToJs( o )
 {
-  return _.instanceConstructor( Self, this, arguments );
+  return _.workpiece.construct( Self, this, arguments );
 }
 
 Self.shortName = 'PrinterToJs';
