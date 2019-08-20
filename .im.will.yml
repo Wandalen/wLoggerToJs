@@ -3,17 +3,17 @@ submodule :
 
   wLogger :
     path : npm:///wLogger
-    enabled : 0
+    enabled : 0 # submodule
     criterion :
       development : 1
   wloggertojs :
     path : hd://.
-    enabled : 0
+    enabled : 0 # submodule
     criterion :
       development : 1
   wTesting :
     path : npm:///wTesting
-    enabled : 0
+    enabled : 0 # submodule
     criterion :
       development : 1
 
