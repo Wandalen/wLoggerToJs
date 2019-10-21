@@ -22,8 +22,8 @@
   {
     "url" : "https://github.com/Wandalen/wLoggerToJs/issues"
   }, 
-  "dependencies" : { "wLogger" : "" }, 
-  "devDependencies" : { "wTesting" : "" }, 
+  "dependencies" : { "wLogger" : "beta" }, 
+  "devDependencies" : { "wTesting" : "beta" }, 
   "keywords" : 
   [
     "record console output", 
