@@ -22,7 +22,7 @@ about :
 path :
 
   repository : git+https:///github.com/Wandalen/wLoggerToJs.git
-  remotes :
+  origins :
    - git+https:///github.com/Wandalen/wLoggerToJs.git
    - npm:///wloggertojs
   bugs : https:///github.com/Wandalen/wLoggerToJs/issues
