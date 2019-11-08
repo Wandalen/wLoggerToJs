@@ -2,16 +2,20 @@ format: outwillfile-2.0
 root:
   - wLoggerToJs.out
 consistency:
-  ../.ex.will.yml: &ref_0
+  wLoggerToJs.out.will.yml: &ref_0
+    hash: 17a17120d65e0820cd52c214b82366b8
+    size: 14350
+  ../.ex.will.yml: &ref_1
     hash: 6d216764968dfdba05f422a308207146
     size: 1487
-  ../.im.will.yml: &ref_1
+  ../.im.will.yml: &ref_2
     hash: 844ab52058e80d039128df770afd6bfa
     size: 1692
 module:
   wLoggerToJs.out:
     about:
       name: wLoggerToJs
+      org: noorg
       description: >-
         Class to redirect logging to JavaScript structure. Logger supports
         colorful formatting, verbosity control, chaining, combining several
@@ -25,11 +29,11 @@ module:
         destination/source.
       enabled: 1
       version: 0.4.71
-      interpreters: &ref_2
+      interpreters:
         - nodejs >= 8.0.0
         - chrome >= 60.0.0
         - firefox >= 60.0.0
-      keywords: &ref_3
+      keywords:
         - wTools
     path:
       module.willfiles:
@@ -59,9 +63,6 @@ module:
       download:
         criterion:
           predefined: 1
-      remote:
-        criterion:
-          predefined: 1
       repository:
         path: 'git+https:///github.com/Wandalen/wLoggerToJs.git'
       origins:
@@ -71,14 +72,10 @@ module:
       bugs:
         path: 'https:///github.com/Wandalen/wLoggerToJs/issues'
       in:
-        criterion:
-          predefined: 0
         path: .
       temp:
         path: .
       out:
-        criterion:
-          predefined: 0
         path: .
       out.debug:
         criterion:
@@ -94,6 +91,7 @@ module:
         path: '{path::proto}/**'
       exported.dir.proto.export:
         criterion:
+          generated: 1
           default: 1
           debug: 1
           raw: 1
@@ -104,6 +102,7 @@ module:
         path: ../proto
       exported.files.proto.export:
         criterion:
+          generated: 1
           default: 1
           debug: 1
           raw: 1
@@ -167,6 +166,7 @@ module:
           prefixPath: ../proto
         mandatory: 1
         criterion:
+          generated: 1
           default: 1
           debug: 1
           raw: 1
@@ -184,6 +184,7 @@ module:
         recursive: 0
         mandatory: 1
         criterion:
+          generated: 1
           default: 1
           debug: 1
           raw: 1
@@ -271,6 +272,34 @@ module:
           debug: 1
         inherit:
           - files.reflect
+      exported.proto.export:
+        opts:
+          reflector: 'reflector::exported.proto.export*'
+        criterion:
+          generated: 1
+          default: 1
+          debug: 1
+          raw: 1
+          proto: 1
+          export: 1
+          tar: 1
+          public: 1
+        inherit:
+          - files.reflect
+      exported.files.proto.export:
+        opts:
+          reflector: 'reflector::exported.files.proto.export*'
+        criterion:
+          generated: 1
+          default: 1
+          debug: 1
+          raw: 1
+          proto: 1
+          export: 1
+          tar: 1
+          public: 1
+        inherit:
+          - files.reflect
     build:
       proto.export:
         steps:
@@ -336,11 +365,13 @@ module:
           tar: 1
           public: 1
     consistency:
-      ../.ex.will.yml: *ref_0
-      ../.im.will.yml: *ref_1
+      wLoggerToJs.out.will.yml: *ref_0
+      ../.ex.will.yml: *ref_1
+      ../.im.will.yml: *ref_2
   ../:
     about:
       name: wLoggerToJs
+      org: noorg
       description: >-
         Class to redirect logging to JavaScript structure. Logger supports
         colorful formatting, verbosity control, chaining, combining several
@@ -354,8 +385,12 @@ module:
         destination/source.
       enabled: 1
       version: 0.4.71
-      interpreters: *ref_2
-      keywords: *ref_3
+      interpreters:
+        - nodejs >= 8.0.0
+        - chrome >= 60.0.0
+        - firefox >= 60.0.0
+      keywords:
+        - wTools
     path:
       module.willfiles:
         criterion:
@@ -384,9 +419,6 @@ module:
       download:
         criterion:
           predefined: 1
-      remote:
-        criterion:
-          predefined: 1
       repository:
         path: 'git+https:///github.com/Wandalen/wLoggerToJs.git'
       origins:
@@ -396,25 +428,21 @@ module:
       bugs:
         path: 'https:///github.com/Wandalen/wLoggerToJs/issues'
       in:
-        criterion:
-          predefined: 0
         path: .
       temp:
         path: out
       out:
-        criterion:
-          predefined: 0
         path: out
       out.debug:
         criterion:
           debug: 1
-        path: ./out/debug
+        path: out/debug
       out.release:
         criterion:
           debug: 0
-        path: ./out/release
+        path: out/release
       proto:
-        path: ./proto
+        path: proto
       export:
         path: '{path::proto}/**'
     submodule: {}
@@ -579,3 +607,6 @@ module:
       ../.im.will.yml:
         hash: 844ab52058e80d039128df770afd6bfa
         size: 1692
+      wLoggerToJs.out.will.yml:
+        hash: 17a17120d65e0820cd52c214b82366b8
+        size: 14350
