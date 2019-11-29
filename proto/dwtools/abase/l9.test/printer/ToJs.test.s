@@ -62,7 +62,7 @@ function writeToJs( test )
 
 function chaining( test )
 {
-  let consoleWasBarred = _.Logger.consoleIsBarred( console );
+  let consoleWasBarred = _.Logger.ConsoleIsBarred( console );
 
   try
   {
@@ -71,7 +71,7 @@ function chaining( test )
   catch( err )
   {
     if( consoleWasBarred )
-    test.suite.consoleBar( 1 );
+    test.suite.ConsoleBar( 1 );
 
     throw _.errLogOnce( err );
   }
@@ -175,12 +175,12 @@ function chaining( test )
 
     test.case = 'case7: input from console';
     var loggerToJstructure = new wPrinterToJs();
-    test.suite.consoleBar( 0 );
+    test.suite.ConsoleBar( 0 );
     loggerToJstructure.inputFrom( console );
     console.log( 'abc' );
     loggerToJstructure.inputUnchain( console );
     if( consoleWasBarred )
-    test.suite.consoleBar( 1 );
+    test.suite.ConsoleBar( 1 );
     var got = loggerToJstructure.outputData;
     var expected =
     [
@@ -191,14 +191,14 @@ function chaining( test )
     test.case = 'case8: input from console twice';
     var loggerToJstructure1 = new wPrinterToJs();
     var loggerToJstructure2 = new wPrinterToJs();
-    test.suite.consoleBar( 0 );
+    test.suite.ConsoleBar( 0 );
     loggerToJstructure1.inputFrom( console );
     loggerToJstructure2.inputFrom( console );
     console.log( 'abc' )
     loggerToJstructure1.inputUnchain( console )
     loggerToJstructure2.inputUnchain( console )
     if( consoleWasBarred )
-    test.suite.consoleBar( 1 );
+    test.suite.ConsoleBar( 1 );
 
     var got =
     [
