@@ -2,10 +2,13 @@ format: outwillfile-2.0
 root:
   - wLoggerToJs.out
 consistency:
-  ../.ex.will.yml: &ref_0
+  wLoggerToJs.out.will.yml: &ref_0
+    hash: 5802e972c8501d13def37a3e9f7e4db7
+    size: 39616
+  ../.ex.will.yml: &ref_1
     hash: f21076df6d727caf87735461bcc4d5f9
     size: 2494
-  ../.im.will.yml: &ref_1
+  ../.im.will.yml: &ref_2
     hash: fe39d9692e441c954018288e66b79238
     size: 4914
 module:
@@ -26,11 +29,11 @@ module:
         destination/source.
       enabled: 1
       version: 0.5.0
-      interpreters: &ref_2
+      interpreters:
         - njs >= 8.0.0
         - chrome >= 60.0.0
         - firefox >= 60.0.0
-      keywords: &ref_3
+      keywords:
         - record console output
         - store console output into array
         - wTools
@@ -43,11 +46,11 @@ module:
         - color
       license: MIT
       author: Kostiantyn Wandalen <wanalen@willbe.so>
-      contributors: &ref_4
+      contributors:
         - Kostiantyn Wandalen <wanalen@willbe.so>
         - Volodymyr M. <volodymyr.migdal@gmail.com>
       npm.name: wtools.experiment
-      npm.scripts: &ref_5
+      npm.scripts:
         test: wtest .run proto/**
         docgen: wdocgen .build proto
     path:
@@ -713,6 +716,24 @@ module:
           content: prime
         inherit:
           - files.transpile
+      exported.proto.export:
+        opts:
+          reflector: 'reflector::exported.proto.export*'
+        criterion:
+          generated: 1
+          content: proto
+          export: 1
+        inherit:
+          - files.reflect
+      exported.files.proto.export:
+        opts:
+          reflector: 'reflector::exported.files.proto.export*'
+        criterion:
+          generated: 1
+          content: proto
+          export: 1
+        inherit:
+          - files.reflect
     build:
       proto.export:
         steps:
@@ -801,8 +822,9 @@ module:
           content: proto
           export: 1
     consistency:
-      ../.ex.will.yml: *ref_0
-      ../.im.will.yml: *ref_1
+      wLoggerToJs.out.will.yml: *ref_0
+      ../.ex.will.yml: *ref_1
+      ../.im.will.yml: *ref_2
   ../:
     about:
       name: wLoggerToJs
@@ -820,13 +842,30 @@ module:
         destination/source.
       enabled: 1
       version: 0.5.0
-      interpreters: *ref_2
-      keywords: *ref_3
+      interpreters:
+        - njs >= 8.0.0
+        - chrome >= 60.0.0
+        - firefox >= 60.0.0
+      keywords:
+        - record console output
+        - store console output into array
+        - wTools
+        - logger
+        - logging
+        - log
+        - colorful log
+        - multilevel log
+        - colors
+        - color
       license: MIT
       author: Kostiantyn Wandalen <wanalen@willbe.so>
-      contributors: *ref_4
+      contributors:
+        - Kostiantyn Wandalen <wanalen@willbe.so>
+        - Volodymyr M. <volodymyr.migdal@gmail.com>
       npm.name: wtools.experiment
-      npm.scripts: *ref_5
+      npm.scripts:
+        test: wtest .run proto/**
+        docgen: wdocgen .build proto
     path:
       module.willfiles:
         criterion:
@@ -1496,3 +1535,6 @@ module:
       ../.im.will.yml:
         hash: fe39d9692e441c954018288e66b79238
         size: 4914
+      wLoggerToJs.out.will.yml:
+        hash: 5802e972c8501d13def37a3e9f7e4db7
+        size: 39616
