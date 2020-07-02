@@ -22,7 +22,7 @@ if( typeof module !== 'undefined' )
 
 }
 
-var symbolForLevel = Symbol.for( 'level' );
+let levelSymbol = Symbol.for( 'level' );
 
 //
 
@@ -41,39 +41,39 @@ var symbolForLevel = Symbol.for( 'level' );
  * </ul>
  * Leveling:
  * <ul>
- *  <li>Increase current level [up]{@link wPrinterMid.up}
- *  <li>Decrease current level [down]{@link wPrinterMid.down}
+ *  <li>Increase current level [up]{@link wLoggerMid.up}
+ *  <li>Decrease current level [down]{@link wLoggerMid.down}
  * </ul>
  * Chaining:
  * <ul>
- *  <li>Add object to output list [outputTo]{@link wPrinterMid.outputTo}
- *  <li>Remove object from output list [outputUnchain]{@link wPrinterMid.outputUnchain}
- *  <li>Add current logger to target's output list [inputFrom]{@link wPrinterMid.inputFrom}
- *  <li>Remove current logger from target's output list [inputUnchain]{@link wPrinterMid.inputUnchain}
+ *  <li>Add object to output list [outputTo]{@link wLoggerMid.outputTo}
+ *  <li>Remove object from output list [outputUnchain]{@link wLoggerMid.outputUnchain}
+ *  <li>Add current logger to target's output list [inputFrom]{@link wLoggerMid.inputFrom}
+ *  <li>Remove current logger from target's output list [inputUnchain]{@link wLoggerMid.inputUnchain}
  * </ul>
  * Other:
  * <ul>
  * <li>Convert data structure to json string [toJson]{@link wPrinterToJs.toJson}
  * </ul>
- * @classdesc Subclass of Logger. It writes messages( incoming & outgoing ) to own data structure( array of arrays ). Based on [wPrinterTop]{@link wPrinterTop}.
+ * @classdesc Subclass of Logger. It writes messages( incoming & outgoing ) to own data structure( array of arrays ). Based on [wLoggerTop]{@link wLoggerTop}.
  *
  * @param { Object } o - Options.
  * @param { Object } [ o.output=null ] - Specifies single output object for current logger.
  * @param { Object } [ o.outputData=[ ] ] - Specifies where to write messages.
  *
  * @example
- * var l = new wPrinterToJs();
+ * let l = new wPrinterToJs();
  * l.log( '1' );
  * l.outputData; //returns [ '1' ]
  *
  * @example
- * var data = [];
- * var l = new wPrinterToJs({ outputData : data });
+ * let data = [];
+ * let l = new wPrinterToJs({ outputData : data });
  * l.log( '1' );
  * console.log( data ); //returns [ '1' ]
  *
  * @example
- * var l = new wPrinterToJs({ output : console });
+ * let l = new wPrinterToJs({ output : console });
  * l.log( '1' ); // console prints '1'
  * l.outputData; //returns [ '1' ]
  *
@@ -81,10 +81,10 @@ var symbolForLevel = Symbol.for( 'level' );
  * @namespace Tools
  * @module Tools/base/printer/ToJs
  */
-var _global = _global_;
-var _ = _global_.wTools;
-var Parent = _.PrinterTop;
-var Self = function wPrinterToJs( o )
+let _global = _global_;
+let _ = _global_.wTools;
+let Parent = _.LoggerTop;
+let Self = function wPrinterToJs( o )
 {
   return _.workpiece.construct( Self, this, arguments );
 }
@@ -95,7 +95,7 @@ Self.shortName = 'PrinterToJs';
 
 function init( o )
 {
-  var self = this;
+  let self = this;
 
   Parent.prototype.init.call( self,o );
 
@@ -107,10 +107,10 @@ function init( o )
 
 function write()
 {
-  var self = this;
+  let self = this;
 
   debugger;
-  var o = _.PrinterBase.prototype.write.apply( self,arguments );
+  let o = _.LoggerBasic.prototype.write.apply( self,arguments );
 
   if( !o )
   return;
@@ -119,15 +119,15 @@ function write()
   _.assert( _.arrayIs( o.output ) );
   _.assert( o.output.length === 1 );
 
-  var terminal = o.output[ 0 ];
+  let terminal = o.output[ 0 ];
   if( self.usingTags && _.mapKeys( self.attributes ).length )
   {
 
-    var text = terminal;
+    let text = terminal;
     terminal = Object.create( null );
     terminal.text = text;
 
-    for( var t in self.attributes )
+    for( let t in self.attributes )
     {
       terminal[ t ] = self.attributes[ t ];
     }
@@ -143,7 +143,7 @@ function write()
 
 function _transformEnd( o )
 {
-  var self = this;
+  let self = this;
 
   _.assert( arguments.length === 1, 'Expects single argument' );
 
@@ -157,15 +157,15 @@ function _transformEnd( o )
   _.assert( _.arrayIs( o.outputForTerminal ) );
   _.assert( o.outputForTerminal.length === 1 );
 
-  var terminal = o.outputForTerminal[ 0 ];
+  let terminal = o.outputForTerminal[ 0 ];
   if( self.usingTags && _.mapKeys( self.attributes ).length )
   {
 
-    var text = terminal;
+    let text = terminal;
     terminal = Object.create( null );
     terminal.text = text;
 
-    for( var t in self.attributes )
+    for( let t in self.attributes )
     {
       terminal[ t ] = self.attributes[ t ];
     }
@@ -181,7 +181,7 @@ function _transformEnd( o )
 
 function levelSet( level )
 {
-  var self = this;
+  let self = this;
 
   _.assert( level >= 0, 'levelSet : cant go below zero level to',level );
   _.assert( isFinite( level ) );
@@ -199,15 +199,15 @@ function levelSet( level )
   //   return _changeLevel( arr[ 0 ], --level );
   // }
 
-  var dLevel = level - self[ symbolForLevel ];
+  let dLevel = level - self[ levelSymbol ];
 
   // Parent.prototype.levelSet.call( self,level );
 
   if( dLevel > 0 )
   {
-    for( var l = 0 ; l < dLevel ; l++ )
+    for( let l = 0 ; l < dLevel ; l++ )
     {
-      var newContainer = [];
+      let newContainer = [];
       self._currentContainers.push( self._currentContainer );
       self._currentContainer.push( newContainer );
       self._currentContainer = newContainer;
@@ -223,7 +223,7 @@ function levelSet( level )
     _.assert( self._currentContainers.length === 0 );
   }
 
-  self[ symbolForLevel ] = level;
+  self[ levelSymbol ] = level;
 }
 
 //
@@ -233,7 +233,7 @@ function levelSet( level )
  * @returns Data structure as JSON string.
  *
  * @example
- * var l = new wPrinterToJs();
+ * let l = new wPrinterToJs();
  * l.up( 2 );
  * l.log( '1' );
  * l.toJson();
@@ -251,7 +251,7 @@ function levelSet( level )
 
 function toJson()
 {
-  var self = this;
+  let self = this;
   return _.toStr( self.outputData, { jsonLike : 1 } );
 }
 
@@ -259,23 +259,23 @@ function toJson()
 // relations
 // --
 
-var Composes =
+let Composes =
 {
   usingTags : 1,
   // writingAttributesIntoTerminals : 1,
   // writingAttributesIntoBranches : 1,
 }
 
-var Aggregates =
+let Aggregates =
 {
   outputData : _.define.own( [] ),
 }
 
-var Associates =
+let Associates =
 {
 }
 
-var Restricts =
+let Restricts =
 {
   _currentContainer : null,
   _currentContainers : _.define.own( [] ),
@@ -285,7 +285,7 @@ var Restricts =
 // prototype
 // --
 
-var Proto =
+let Proto =
 {
 
   init,
