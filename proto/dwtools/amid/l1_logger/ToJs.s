@@ -83,7 +83,7 @@ let levelSymbol = Symbol.for( 'level' );
  */
 let _global = _global_;
 let _ = _global_.wTools;
-let Parent = _.LoggerTop;
+let Parent = _.Logger;
 let Self = function wPrinterToJs( o )
 {
   return _.workpiece.construct( Self, this, arguments );
