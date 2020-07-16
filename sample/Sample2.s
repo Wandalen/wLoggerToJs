@@ -2,7 +2,7 @@
 if( typeof module !== 'undefined' )
 require( 'wloggertojs' );
 
-var _ = wTools;
+let _ = wTools;
 
 var logger = new wLogger();
 
