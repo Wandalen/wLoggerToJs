@@ -287,7 +287,7 @@ function leveling( test )
 var Proto =
 {
 
-  name : 'Tools.base.printer.ToJs',
+  name : 'Tools.logger.ToJs',
   silencing : 1,
 
   tests :
