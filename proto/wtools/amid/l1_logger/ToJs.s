@@ -8,8 +8,7 @@
 */
 
 /**
- * @file printer/ToJs.s.
- */
+ *  */
 
 // require
 
