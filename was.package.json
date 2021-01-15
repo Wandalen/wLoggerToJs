@@ -23,7 +23,7 @@
     "url" : "https://github.com/Wandalen/wLoggerToJs/issues"
   },
   "dependencies" : { "wLogger" : "" },
-  "devDependencies" : { "wTesting" : "" },
+  "devDependencies" : { "wTesting" : "", "wloggertojs" : "file:.", "eslint" : "7.1.0" },
   "keywords" :
   [
     "record console output",

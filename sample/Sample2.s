@@ -4,10 +4,10 @@ require( 'wloggertojs' );
 
 let _ = wTools;
 
-var logger = new wLogger();
+// var logger = new wLogger();
 
 var loggerToJstructure = new wPrinterToJs({ output : null });
-logger.outputTo( loggerToJstructure, { combining : 'rewrite', leveling : 'delta' } );
+logger.outputTo( loggerToJstructure, { combining : 'rewrite'/*, leveling : 'delta' */ } );
 logger._dprefix = '*'
 logger.up( 2 );
 logger.log( 'message' );
