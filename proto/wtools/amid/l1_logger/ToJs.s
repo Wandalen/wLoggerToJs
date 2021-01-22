@@ -1,4 +1,5 @@
-(function _ToJs_s_() {
+(function _ToJs_s_()
+{
 
 'use strict';
 
@@ -15,7 +16,7 @@
 if( typeof module !== 'undefined' )
 {
 
-  let _ = require( '../../../../../wtools/Tools.s' );
+  let _ = require( './../../../wtools/Tools.s' );
 
   _.include( 'wLogger' );
 
@@ -83,7 +84,8 @@ let levelSymbol = Symbol.for( 'level' );
 let _global = _global_;
 let _ = _global_.wTools;
 let Parent = _.Logger;
-let Self = function wPrinterToJs( o )
+let Self = wPrinterToJs;
+function wPrinterToJs( o )
 {
   return _.workpiece.construct( Self, this, arguments );
 }
@@ -96,7 +98,7 @@ function init( o )
 {
   let self = this;
 
-  Parent.prototype.init.call( self,o );
+  Parent.prototype.init.call( self, o );
 
   self._currentContainer = self.outputData;
 
@@ -109,7 +111,7 @@ function write()
   let self = this;
 
   debugger;
-  let o = _.LoggerBasic.prototype.write.apply( self,arguments );
+  let o = _.LoggerBasic.prototype.write.apply( self, arguments );
 
   if( !o )
   return;
@@ -182,7 +184,7 @@ function levelSet( level )
 {
   let self = this;
 
-  _.assert( level >= 0, 'levelSet : cant go below zero level to',level );
+  _.assert( level >= 0, 'levelSet : cant go below zero level to', level );
   _.assert( isFinite( level ) );
 
   // function _changeLevel( arr, level )
@@ -217,7 +219,7 @@ function levelSet( level )
     self._currentContainer = self._currentContainers[ self._currentContainers.length+dLevel ];
     _.assert( _.longIs( self._currentContainer ) || _.objectLike( self._currentContainer ) );
     _.assert( self._currentContainers.length >= -dLevel );
-    self._currentContainers.splice( self._currentContainers.length+dLevel,self._currentContainers.length );
+    self._currentContainers.splice( self._currentContainers.length+dLevel, self._currentContainers.length );
     if( level === 0 )
     _.assert( self._currentContainers.length === 0 );
   }

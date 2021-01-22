@@ -5,7 +5,7 @@ require( 'wloggertojs' );
 let _ = wTools;
 var logger = new wPrinterToJs();
 
-console.log( 'outputData',logger.outputData );
+console.log( 'outputData', logger.outputData );
 
 logger._dprefix = '-';
 logger.log( 'a1\nb1' );
@@ -16,7 +16,7 @@ logger.log( 'c2' );
 logger.level = 0;
 logger.log( 'c1' );
 
-console.log( 'outputData',logger.outputData );
+console.log( 'outputData', logger.outputData );
 console.log( logger.toJson() );
 
 // [

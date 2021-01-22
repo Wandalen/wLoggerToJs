@@ -1,11 +1,13 @@
-( function _ToJs_test_s_( ) {
+( function _ToJs_test_s_( )
+{
 
 'use strict';
 
 if( typeof module !== 'undefined' )
 {
 
-  require( '../../l9/logger/ToJs.s' );
+  // require( '../../l9/logger/ToJs.s' );
+  require( '../l1_logger/ToJs.s' );
 
   let _ = _global_.wTools;
 
@@ -33,12 +35,7 @@ function writeToJs( test )
   loggerToJstructure.up( 2 );
   loggerToJstructure.log( '123' );
   var got = loggerToJstructure.outputData;
-  var expected =
-  [
-    [
-      [ '123' ]
-    ]
-  ];
+  var expected = [ [ [ '123' ] ] ];
   test.identical( got, expected );
 
   test.case = 'case3';
@@ -107,12 +104,7 @@ function chaining( test )
     loggerToJstructure.up( 2 );
     l.log( 'msg' );
     var got = loggerToJstructure.outputData;
-    var expected =
-    [
-      [
-        [ 'msg' ]
-      ]
-    ];
+    var expected = [ [ [ 'msg' ] ] ];
     test.identical( got, expected );
 
     // test.case = 'case4: Logger->LoggerToJs, leveling on';
@@ -182,10 +174,7 @@ function chaining( test )
     if( consoleWasBarred )
     test.suite.consoleBar( 1 );
     var got = loggerToJstructure.outputData;
-    var expected =
-    [
-      'abc'
-    ];
+    var expected = [ 'abc' ];
     test.identical( got, expected );
 
     test.case = 'case8: input from console twice';
@@ -224,24 +213,13 @@ function leveling( test )
   test.identical( loggerToJstructure.level, 5 );
   loggerToJstructure.log( 1 );
   var got = loggerToJstructure.outputData;
-  var expected =
-  [
-    [
-      [
-        [
-          [
-            [ '1' ]
-          ]
-        ]
-      ]
-    ]
-  ]
+  var expected = [ [ [ [ [ [ '1' ] ] ] ] ] ]
 
-  test.identical( got,expected )
+  test.identical( got, expected )
   loggerToJstructure.level = 0;
   loggerToJstructure.log( 1 );
   expected.push( '1' );
-  test.identical( got,expected )
+  test.identical( got, expected )
   test.identical( loggerToJstructure.level, 0 );
 
   /**/
@@ -251,24 +229,13 @@ function leveling( test )
   test.identical( loggerToJstructure.level, 5 );
   loggerToJstructure.log( 1 );
   var got = loggerToJstructure.outputData;
-  var expected =
-  [
-    [
-      [
-        [
-          [
-            [ '1' ]
-          ]
-        ]
-      ]
-    ]
-  ]
+  var expected = [ [ [ [ [ [ '1' ] ] ] ] ] ]
 
-  test.identical( got,expected )
+  test.identical( got, expected )
   loggerToJstructure.down( 5 );
   loggerToJstructure.log( 1 );
   expected.push( '1' );
-  test.identical( got,expected );
+  test.identical( got, expected );
   test.identical( loggerToJstructure.level, 0 );
 
   /**/
@@ -293,9 +260,9 @@ var Proto =
   tests :
   {
 
-   writeToJs,
-   chaining,
-   leveling  : leveling
+    writeToJs,
+    chaining,
+    leveling
 
   },
 
@@ -303,7 +270,7 @@ var Proto =
 
 //
 
-_.mapExtend( Self,Proto );
+_.mapExtend( Self, Proto );
 Self = wTestSuite( Self )
 if( typeof module !== 'undefined' && !module.parent )
 wTester.test( Self.name );
