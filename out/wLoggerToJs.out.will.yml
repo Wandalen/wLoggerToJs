@@ -1528,6 +1528,4 @@ module:
       ../.im.will.yml:
         hash: 38e47365d80704d56199e36e7fea6055
         size: 5013
-      wLoggerToJs.out.will.yml:
-        hash: 8ba0ce561bdadd3d6534a6fc8f4865b8
-        size: 39324
+      wLoggerToJs.out.will.yml: *ref_0
