@@ -253,7 +253,7 @@ function levelSet( level )
 function toJson()
 {
   let self = this;
-  return _.toStr( self.outputData, { jsonLike : 1 } );
+  return _.entity.exportString( self.outputData, { jsonLike : 1 } );
 }
 
 // --
