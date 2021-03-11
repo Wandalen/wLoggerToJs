@@ -23,6 +23,7 @@ let Self = {};
 
 function writeToJs( test )
 {
+
   test.case = 'case1';
   var loggerToJstructure  = new wPrinterToJs();
   loggerToJstructure.log( '123' );
