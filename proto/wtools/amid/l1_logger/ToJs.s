@@ -16,7 +16,7 @@
 if( typeof module !== 'undefined' )
 {
 
-  let _ = require( './../../../wtools/Tools.s' );
+  const _ = require( './../../../node_modules/Tools' );
 
   _.include( 'wLogger' );
 
@@ -81,10 +81,10 @@ let levelSymbol = Symbol.for( 'level' );
  * @namespace Tools
  * @module Tools/base/printer/ToJs
  */
-let _global = _global_;
-let _ = _global_.wTools;
-let Parent = _.Logger;
-let Self = wPrinterToJs;
+const _global = _global_;
+const _ = _global_.wTools;
+const Parent = _.Logger;
+const Self = wPrinterToJs;
 function wPrinterToJs( o )
 {
   return _.workpiece.construct( Self, this, arguments );

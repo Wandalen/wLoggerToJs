@@ -9,15 +9,15 @@ if( typeof module !== 'undefined' )
   // require( '../../l9/logger/ToJs.s' );
   require( '../l1_logger/ToJs.s' );
 
-  let _ = _global_.wTools;
+  const _ = _global_.wTools;
 
   _.include( 'wTesting' );
 
 }
 
-let _ = _global_.wTools;
-let Parent = wTools.Testing;
-let Self = {};
+const _ = _global_.wTools;
+const Parent = wTools.Testing;
+const Proto = {};
 
 //
 
@@ -252,7 +252,7 @@ function leveling( test )
 
 //
 
-var Proto =
+const Proto =
 {
 
   name : 'Tools.logger.ToJs',
@@ -272,7 +272,7 @@ var Proto =
 //
 
 _.mapExtend( Self, Proto );
-Self = wTestSuite( Self )
+const Self = wTestSuite( Proto )
 if( typeof module !== 'undefined' && !module.parent )
 wTester.test( Self.name );
 
